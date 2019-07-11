@@ -14,6 +14,8 @@ class AddCounterVC: UIViewController {
     
     @IBOutlet weak var CounterNameInput: UITextField!
     
+    @IBOutlet weak var selectedColourView: UIView!
+    
     @IBAction func addColours(_ sender: Any) {
         guard let button = sender as? UIButton else {
             return
@@ -25,7 +27,7 @@ class AddCounterVC: UIViewController {
         case 2:
             colourSelected = "CounterAccentCoral"
         case 3:
-            colourSelected = "CounterAccentAquamarine"
+            colourSelected = "CounterAccentDarkAquamarine"
         case 4:
             colourSelected = "CounterAccentPurple"
         case 5:
@@ -40,6 +42,7 @@ class AddCounterVC: UIViewController {
             colourSelected = "CounterAccentBlue"
             print("Cant find colour?")
         }
+        selectedColourView.backgroundColor = UIColor(named: "\(colourSelected)")
     }
     
     
@@ -76,7 +79,7 @@ class AddCounterVC: UIViewController {
          // Do any additional setup after loading the view.
         colourSelected = "CounterAccentBlue"
         
-        
+        selectedColourView.layer.cornerRadius = 10
         // setting text view colours to white
         let white = UIColor.white
         CounterNameInput.layer.borderWidth = 1.0

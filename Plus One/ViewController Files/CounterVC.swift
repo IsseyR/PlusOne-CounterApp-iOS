@@ -11,6 +11,13 @@ import AudioToolbox
 
 class CounterVC: UIViewController {
     
+    @IBAction func settingsButton(_ sender: Any) {
+        counterValues[cellRowSelected] = arrayOffset
+        UserDefaults.standard.set(counterValues, forKey: "counterValuesUserDef")
+        
+        performSegue(withIdentifier: "counterSettingsSegue", sender: nil)
+    }
+    
     @IBAction func undwindToCounterVC(segue:UIStoryboardSegue) { }
 
     @IBOutlet weak var counterNameDetailed: UILabel!
@@ -26,11 +33,7 @@ class CounterVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        arrayOffset = counterValues[cellRowSelected]
-        counterNameDetailed.text = String(arrayOffset)
-        
         // gesture recognisers
-        
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         swipeUp.direction = .up
         
@@ -61,9 +64,14 @@ class CounterVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         counterValues[cellRowSelected] = arrayOffset
         UserDefaults.standard.set(counterValues, forKey: "counterValuesUserDef")
-        print("done")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
+        arrayOffset = counterValues[cellRowSelected]
+        counterNameDetailed.text = String(arrayOffset)
+        self.title = UserDefaults.standard.array(forKey: "counterNamesUserDef")![UserDefaults.standard.integer(forKey: "counterRowToTransfer")] as? String
+    }
     /*
     // MARK: - Navigation
 

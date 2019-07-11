@@ -46,6 +46,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8WW-rJ-oFR">
                                 <rect key="frame" x="20" y="166" width="374" height="30"/>
                                 <color key="backgroundColor" name="Background"/>
+                                <color key="tintColor" name="SystemWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -91,7 +92,7 @@
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfy-OX-Cbm">
                                         <rect key="frame" x="187" y="0.0" width="93.5" height="93.5"/>
-                                        <color key="backgroundColor" name="CounterAccentAquamarine"/>
+                                        <color key="backgroundColor" name="CounterAccentDarkAquamarine"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pfy-OX-Cbm" secondAttribute="height" multiplier="1:1" id="ERk-NG-T0Z"/>
                                         </constraints>
@@ -167,6 +168,22 @@
                                     <constraint firstItem="Bpj-rp-MUe" firstAttribute="leading" secondItem="BDR-t9-LMy" secondAttribute="trailing" id="yjg-cC-p0b"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDc-rj-7rq">
+                                <rect key="frame" x="164" y="216" width="230" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjD-BI-Z53">
+                                        <rect key="frame" x="74.5" y="12.5" width="81" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="textColor" name="SystemWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="CounterAccentPink"/>
+                                <constraints>
+                                    <constraint firstItem="UjD-BI-Z53" firstAttribute="centerY" secondItem="jDc-rj-7rq" secondAttribute="centerY" id="Mt4-Ju-Ywe"/>
+                                    <constraint firstItem="UjD-BI-Z53" firstAttribute="centerX" secondItem="jDc-rj-7rq" secondAttribute="centerX" id="dOK-A0-NEy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
@@ -174,11 +191,15 @@
                             <constraint firstItem="iDN-G9-kJK" firstAttribute="leading" secondItem="9Jy-Ad-p3D" secondAttribute="leading" constant="20" id="ABd-iF-Tig"/>
                             <constraint firstItem="b3B-Ph-rve" firstAttribute="leading" secondItem="9Jy-Ad-p3D" secondAttribute="leading" constant="20" id="B5H-AR-Vc1"/>
                             <constraint firstItem="w95-FR-BPz" firstAttribute="top" secondItem="b3B-Ph-rve" secondAttribute="bottom" constant="10" id="VeU-TK-shV"/>
+                            <constraint firstItem="jDc-rj-7rq" firstAttribute="bottom" secondItem="b3B-Ph-rve" secondAttribute="bottom" id="cZE-jq-SIM"/>
                             <constraint firstItem="8WW-rJ-oFR" firstAttribute="top" secondItem="iDN-G9-kJK" secondAttribute="bottom" constant="10" id="ewn-Ty-VwS"/>
                             <constraint firstItem="9Jy-Ad-p3D" firstAttribute="bottom" secondItem="w95-FR-BPz" secondAttribute="bottom" constant="20" id="h6m-IK-64N"/>
+                            <constraint firstItem="jDc-rj-7rq" firstAttribute="leading" secondItem="b3B-Ph-rve" secondAttribute="trailing" constant="20" id="hcQ-sE-Gg9"/>
+                            <constraint firstItem="jDc-rj-7rq" firstAttribute="top" secondItem="b3B-Ph-rve" secondAttribute="top" id="itb-9L-VNm"/>
                             <constraint firstItem="b3B-Ph-rve" firstAttribute="top" secondItem="8WW-rJ-oFR" secondAttribute="bottom" constant="20" id="jrH-Ig-MNR"/>
                             <constraint firstItem="w95-FR-BPz" firstAttribute="leading" secondItem="9Jy-Ad-p3D" secondAttribute="leading" constant="20" id="m3Q-E2-ks8"/>
                             <constraint firstItem="9Jy-Ad-p3D" firstAttribute="trailing" secondItem="8WW-rJ-oFR" secondAttribute="trailing" constant="20" id="mUn-J2-Yor"/>
+                            <constraint firstItem="jDc-rj-7rq" firstAttribute="trailing" secondItem="8WW-rJ-oFR" secondAttribute="trailing" id="ns2-vj-7Pj"/>
                             <constraint firstItem="9Jy-Ad-p3D" firstAttribute="trailing" secondItem="w95-FR-BPz" secondAttribute="trailing" constant="20" id="ohM-kM-zQe"/>
                             <constraint firstItem="iDN-G9-kJK" firstAttribute="top" secondItem="9Jy-Ad-p3D" secondAttribute="top" constant="20" id="zfV-Mk-6rG"/>
                         </constraints>
@@ -194,6 +215,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="CounterNameInput" destination="8WW-rJ-oFR" id="Ohq-cP-bCy"/>
+                        <outlet property="selectedColourView" destination="jDc-rj-7rq" id="x0M-ip-z2C"/>
                         <segue destination="GL2-iL-OSa" kind="show" identifier="addCounterSegue" id="GQH-9M-KxW"/>
                     </connections>
                 </viewController>
@@ -235,7 +257,7 @@
                                                 <constraint firstItem="nsW-pV-3iT" firstAttribute="centerY" secondItem="pbM-V2-Z90" secondAttribute="centerY" id="Qwd-h1-L4F"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Counter Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-Ff-OTz">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Counter Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="oHk-Ff-OTz">
                                             <rect key="frame" x="120.5" y="31.5" width="245.5" height="48"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,12 +311,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to increase the counter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8J0-ZC-P2W">
-                                <rect key="frame" x="81" y="118" width="252" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="SystemOrange"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe down to decrease the counter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcR-wj-VGC">
                                 <rect key="frame" x="67" y="811" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -305,6 +321,12 @@
                                 <rect key="frame" x="113" y="406" width="188" height="84"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="70"/>
                                 <color key="textColor" name="SystemWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to increase the counter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8J0-ZC-P2W">
+                                <rect key="frame" x="81" y="118" width="252" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="SystemOrange"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -322,12 +344,13 @@
                     <navigationItem key="navigationItem" title="Counter Name" largeTitleDisplayMode="never" id="sCK-46-vxY">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="AMv-B2-hrx">
                             <connections>
-                                <segue destination="g8g-20-LBE" kind="show" id="Pbd-cP-kFe"/>
+                                <action selector="settingsButton:" destination="sPX-MS-xGd" id="hHZ-DH-yGL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="counterNameDetailed" destination="CQo-Te-bMb" id="lw1-X5-o8H"/>
+                        <segue destination="g8g-20-LBE" kind="show" identifier="counterSettingsSegue" id="hG9-aj-Jpz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z0i-v1-xKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +430,7 @@
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkc-Kt-4sy">
                                         <rect key="frame" x="187" y="0.0" width="93.5" height="93.5"/>
-                                        <color key="backgroundColor" name="CounterAccentAquamarine"/>
+                                        <color key="backgroundColor" name="CounterAccentDarkAquamarine"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gkc-Kt-4sy" secondAttribute="height" multiplier="1:1" id="CgK-2V-86T"/>
                                         </constraints>
@@ -513,6 +536,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameInput" destination="Svq-oS-8xf" id="Byx-rX-VDv"/>
+                        <outlet property="valueInput" destination="6OV-hG-TQA" id="5xn-dS-U6H"/>
                         <segue destination="Q7j-WY-jTI" kind="unwind" identifier="undwindFromSettings" unwindAction="undwindToCounterVCWithSegue:" id="IUj-Ec-b5Q"/>
                     </connections>
                 </viewController>
@@ -529,14 +554,14 @@
         <namedColor name="BlueAccent">
             <color red="0.31764705882352939" green="0.35294117647058826" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="CounterAccentAquamarine">
-            <color red="0.0" green="1" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="CounterAccentBlue">
             <color red="0.31764705882352939" green="0.35294117647058826" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CounterAccentCoral">
             <color red="1" green="0.49803921568627452" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CounterAccentDarkAquamarine">
+            <color red="0.0" green="0.90196078431372551" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="CounterAccentPink">
             <color red="0.96078431372549022" green="0.31764705882352939" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
