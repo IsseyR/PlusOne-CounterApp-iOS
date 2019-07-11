@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
             print("First launch")
+            UserDefaults.standard.set([String](), forKey: "counterColoursUserDef")
             UserDefaults.standard.set([Int](), forKey: "counterValuesUserDef")
             UserDefaults.standard.set([String](), forKey: "counterNamesUserDef")
             UserDefaults.standard.set(true, forKey: "launchedBefore")

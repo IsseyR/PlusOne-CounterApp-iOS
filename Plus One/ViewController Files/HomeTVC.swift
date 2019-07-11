@@ -30,8 +30,9 @@ class HomeTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    let tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
+    var tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
     var tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
+    var tabelCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
 
     // MARK: - Table view data source
 
@@ -61,14 +62,18 @@ class HomeTVC: UITableViewController {
             name.text = tableCellNames?[indexPath.row] as? String
             
             let value = cell.viewWithTag(1) as! UILabel
-            value.text = "\(tableCellValues![indexPath.row])" 
+            value.text = "\(tableCellValues![indexPath.row])"
+            
+            let colour = cell.viewWithTag(3) as! UIView
+            colour.backgroundColor = UIColor(named: "\(tabelCellColours![indexPath.row])")
+
         }
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UserDefaults.standard.set(indexPath.row, forKey: "counterValueToTransfer")
+        UserDefaults.standard.set(indexPath.row, forKey: "counterRowToTransfer")
         print(indexPath.row)
         performSegue(withIdentifier: "detailedCounterViewSegue", sender:  Any?.self)
     }
@@ -85,6 +90,7 @@ class HomeTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
+        tabelCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
         tableView.reloadData()
     }
     

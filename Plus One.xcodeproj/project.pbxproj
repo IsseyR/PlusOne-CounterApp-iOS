@@ -16,6 +16,7 @@
 		81C974F622D2E810005220D4 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C974F522D2E810005220D4 /* HomeTVC.swift */; };
 		81C974F822D2EEBD005220D4 /* CounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C974F722D2EEBD005220D4 /* CounterVC.swift */; };
 		81C974FA22D331A9005220D4 /* AddCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C974F922D331A9005220D4 /* AddCounterVC.swift */; };
+		81F5965D22D7091E004638E7 /* CounterSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5965C22D7091E004638E7 /* CounterSettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		81C974F522D2E810005220D4 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
 		81C974F722D2EEBD005220D4 /* CounterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterVC.swift; sourceTree = "<group>"; };
 		81C974F922D331A9005220D4 /* AddCounterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCounterVC.swift; sourceTree = "<group>"; };
+		81F5965C22D7091E004638E7 /* CounterSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterSettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +103,10 @@
 		81C974C622D2E7C1005220D4 /* Plus One */ = {
 			isa = PBXGroup;
 			children = (
+				81F5965E22D7092D004638E7 /* ViewController Files */,
+				81F5965F22D70949004638E7 /* Storyboards */,
 				81C974C722D2E7C1005220D4 /* AppDelegate.swift */,
-				81C974F522D2E810005220D4 /* HomeTVC.swift */,
-				81C974CB22D2E7C1005220D4 /* Main.storyboard */,
-				81C974F922D331A9005220D4 /* AddCounterVC.swift */,
-				81C974F722D2EEBD005220D4 /* CounterVC.swift */,
 				81C974CE22D2E7C3005220D4 /* Assets.xcassets */,
-				81C974D022D2E7C3005220D4 /* LaunchScreen.storyboard */,
 				81C974D322D2E7C3005220D4 /* Info.plist */,
 			);
 			path = "Plus One";
@@ -129,6 +128,26 @@
 				81C974E922D2E7C3005220D4 /* Info.plist */,
 			);
 			path = "Plus OneUITests";
+			sourceTree = "<group>";
+		};
+		81F5965E22D7092D004638E7 /* ViewController Files */ = {
+			isa = PBXGroup;
+			children = (
+				81C974F522D2E810005220D4 /* HomeTVC.swift */,
+				81F5965C22D7091E004638E7 /* CounterSettingsVC.swift */,
+				81C974F722D2EEBD005220D4 /* CounterVC.swift */,
+				81C974F922D331A9005220D4 /* AddCounterVC.swift */,
+			);
+			path = "ViewController Files";
+			sourceTree = "<group>";
+		};
+		81F5965F22D70949004638E7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				81C974CB22D2E7C1005220D4 /* Main.storyboard */,
+				81C974D022D2E7C3005220D4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +283,7 @@
 			files = (
 				81C974F622D2E810005220D4 /* HomeTVC.swift in Sources */,
 				81C974C822D2E7C1005220D4 /* AppDelegate.swift in Sources */,
+				81F5965D22D7091E004638E7 /* CounterSettingsVC.swift in Sources */,
 				81C974F822D2EEBD005220D4 /* CounterVC.swift in Sources */,
 				81C974FA22D331A9005220D4 /* AddCounterVC.swift in Sources */,
 			);

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class CounterVC: UIViewController {
+    
+    @IBAction func undwindToCounterVC(segue:UIStoryboardSegue) { }
 
     @IBOutlet weak var counterNameDetailed: UILabel!
-    var cellRowSelected  = UserDefaults.standard.integer(forKey: "counterValueToTransfer")
+    var cellRowSelected  = UserDefaults.standard.integer(forKey: "counterRowToTransfer")
     var counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
     var arrayOffset = 0
     
@@ -44,14 +47,14 @@ class CounterVC: UIViewController {
             switch sender.direction {
             case .up:
                 arrayOffset += 1
-                print(arrayOffset)
             case .down:
                 arrayOffset -= 1
-                print(arrayOffset)
             default:
                 print("error")
             }
+            AudioServicesPlaySystemSound(1519)
             counterNameDetailed.text = String(arrayOffset)
+            print(arrayOffset)
         }
     }
     
