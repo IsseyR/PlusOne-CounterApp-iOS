@@ -78,8 +78,12 @@ class CounterSettingsVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        
+        //setting values
+        value = countervalues[cellRowSelected]
+        name = counterNames[cellRowSelected]
+        colour = counterColours[cellRowSelected]
         
         // dismiss keyboard
         let toolbar = UIToolbar()
@@ -104,19 +108,21 @@ class CounterSettingsVC: UIViewController {
         valueInput.layer.borderColor = white.cgColor
         valueInput.layer.cornerRadius = 7
         
-        //setting values
-        value = countervalues[cellRowSelected]
-        name = counterNames[cellRowSelected]
-        colour = counterColours[cellRowSelected]
         
         nameInput.text = name
         valueInput.text = String(value)
     
-        selectedColourView.layer.cornerRadius = 10
         
         print("colour: \(colour)")
         print("name: \(name)")
         print("value: \(value)")
+        
+        
+        selectedColourView.layer.cornerRadius = 10
+        DispatchQueue.main.async {
+            self.selectedColourView.backgroundColor = UIColor(named: "\(self.colour)")
+        }
+        
     }
     
     @objc func dismissKeyboard() {
