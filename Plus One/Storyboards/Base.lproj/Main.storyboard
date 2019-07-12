@@ -47,9 +47,9 @@
                                 <rect key="frame" x="20" y="166" width="374" height="30"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <color key="tintColor" name="SystemWhite"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="SystemWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3B-Ph-rve">
                                 <rect key="frame" x="20" y="216" width="124" height="48"/>
@@ -178,7 +178,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="CounterAccentPink"/>
+                                <color key="backgroundColor" name="CounterAccentBlue"/>
                                 <constraints>
                                     <constraint firstItem="UjD-BI-Z53" firstAttribute="centerY" secondItem="jDc-rj-7rq" secondAttribute="centerY" id="Mt4-Ju-Ywe"/>
                                     <constraint firstItem="UjD-BI-Z53" firstAttribute="centerX" secondItem="jDc-rj-7rq" secondAttribute="centerX" id="dOK-A0-NEy"/>
@@ -284,9 +284,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Counters" largeTitleDisplayMode="always" id="zBP-t5-pNA">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="7O6-Jk-pJV">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eOA-fK-qr1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -373,9 +370,10 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svq-oS-8xf">
                                 <rect key="frame" x="20" y="218" width="374" height="30"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <color key="textColor" name="SystemWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0m-qR-vix">
                                 <rect key="frame" x="20" y="268" width="104" height="48"/>
@@ -385,9 +383,10 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6OV-hG-TQA">
                                 <rect key="frame" x="20" y="326" width="374" height="30"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <color key="textColor" name="SystemWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKC-qW-YXC">
                                 <rect key="frame" x="20" y="376" width="124" height="48"/>
@@ -506,6 +505,22 @@
                                     <constraint firstItem="0Iy-Mx-8Qo" firstAttribute="leading" secondItem="mTp-HV-DSE" secondAttribute="trailing" id="wGF-9g-DBL"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-Xx-aQw">
+                                <rect key="frame" x="164" y="376" width="230" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXi-OK-XER">
+                                        <rect key="frame" x="74.5" y="12.5" width="81" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="textColor" name="SystemWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="CounterAccentBlue"/>
+                                <constraints>
+                                    <constraint firstItem="gXi-OK-XER" firstAttribute="centerY" secondItem="8Mb-Xx-aQw" secondAttribute="centerY" id="8Mh-kc-8bg"/>
+                                    <constraint firstItem="gXi-OK-XER" firstAttribute="centerX" secondItem="8Mb-Xx-aQw" secondAttribute="centerX" id="TeE-oS-Li3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
@@ -513,10 +528,13 @@
                             <constraint firstItem="P0m-qR-vix" firstAttribute="leading" secondItem="5Vi-vf-DBB" secondAttribute="leading" constant="20" id="5PH-et-JGM"/>
                             <constraint firstItem="5Vi-vf-DBB" firstAttribute="trailing" secondItem="Svq-oS-8xf" secondAttribute="trailing" constant="20" id="6NP-Q3-Br0"/>
                             <constraint firstItem="anp-yP-TT9" firstAttribute="leading" secondItem="5Vi-vf-DBB" secondAttribute="leading" constant="20" id="7fq-wY-sUf"/>
+                            <constraint firstItem="8Mb-Xx-aQw" firstAttribute="bottom" secondItem="eKC-qW-YXC" secondAttribute="bottom" id="NRz-td-J7z"/>
                             <constraint firstItem="5Vi-vf-DBB" firstAttribute="bottom" secondItem="anp-yP-TT9" secondAttribute="bottom" constant="20" id="PUd-Ic-D7p"/>
                             <constraint firstItem="P0m-qR-vix" firstAttribute="top" secondItem="Svq-oS-8xf" secondAttribute="bottom" constant="20" id="PeY-Pa-cNz"/>
                             <constraint firstItem="eKC-qW-YXC" firstAttribute="top" secondItem="6OV-hG-TQA" secondAttribute="bottom" constant="20" id="Vpr-Ts-ttk"/>
                             <constraint firstItem="6OV-hG-TQA" firstAttribute="top" secondItem="P0m-qR-vix" secondAttribute="bottom" constant="10" id="W1L-Cv-pXN"/>
+                            <constraint firstItem="8Mb-Xx-aQw" firstAttribute="top" secondItem="eKC-qW-YXC" secondAttribute="top" id="cdk-VS-KBM"/>
+                            <constraint firstItem="8Mb-Xx-aQw" firstAttribute="trailing" secondItem="6OV-hG-TQA" secondAttribute="trailing" id="h0F-a8-1rO"/>
                             <constraint firstItem="eKC-qW-YXC" firstAttribute="leading" secondItem="5Vi-vf-DBB" secondAttribute="leading" constant="20" id="ha5-rl-5np"/>
                             <constraint firstItem="Svq-oS-8xf" firstAttribute="top" secondItem="dkW-ao-JTI" secondAttribute="bottom" constant="10" id="iEi-i5-of7"/>
                             <constraint firstItem="5Vi-vf-DBB" firstAttribute="trailing" secondItem="anp-yP-TT9" secondAttribute="trailing" constant="20" id="n82-0O-ouQ"/>
@@ -525,6 +543,7 @@
                             <constraint firstItem="5Vi-vf-DBB" firstAttribute="trailing" secondItem="6OV-hG-TQA" secondAttribute="trailing" constant="20" id="uBW-hm-Z9Z"/>
                             <constraint firstItem="dkW-ao-JTI" firstAttribute="leading" secondItem="5Vi-vf-DBB" secondAttribute="leading" constant="20" id="uYU-lE-LAu"/>
                             <constraint firstItem="dkW-ao-JTI" firstAttribute="top" secondItem="5Vi-vf-DBB" secondAttribute="top" constant="20" id="uqv-TK-JkE"/>
+                            <constraint firstItem="8Mb-Xx-aQw" firstAttribute="leading" secondItem="eKC-qW-YXC" secondAttribute="trailing" constant="20" id="v6P-W6-xZg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Vi-vf-DBB"/>
                     </view>
@@ -537,6 +556,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="nameInput" destination="Svq-oS-8xf" id="Byx-rX-VDv"/>
+                        <outlet property="selectedColourView" destination="8Mb-Xx-aQw" id="uTD-85-zJP"/>
                         <outlet property="valueInput" destination="6OV-hG-TQA" id="5xn-dS-U6H"/>
                         <segue destination="Q7j-WY-jTI" kind="unwind" identifier="undwindFromSettings" unwindAction="undwindToCounterVCWithSegue:" id="IUj-Ec-b5Q"/>
                     </connections>

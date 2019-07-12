@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Plus One
 //
-//  Created by Issey Rollison on 8/7/19.
+//  Created by Issey on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 

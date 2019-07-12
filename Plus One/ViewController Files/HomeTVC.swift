@@ -2,34 +2,22 @@
 //  HomeTVC.swift
 //  Plus One
 //
-//  Created by Issey Rollison on 8/7/19.
+//  Created by Issey on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
 import UIKit
 import Foundation
 
+
+var homeTVCRowSelected = 0
 class HomeTVC: UITableViewController {
-    
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("testing")
-        if tableCellNames != nil {
-            print(tableCellNames!.count)
-        }
-        else {
-            print("nil")
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
     var tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
     var tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
     var tabelCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
@@ -64,8 +52,8 @@ class HomeTVC: UITableViewController {
             let value = cell.viewWithTag(1) as! UILabel
             value.text = "\(tableCellValues![indexPath.row])"
             
-            let colour = cell.viewWithTag(3) as! UIView
-            colour.backgroundColor = UIColor(named: "\(tabelCellColours![indexPath.row])")
+            let colour = cell.viewWithTag(3) 
+            colour!.backgroundColor = UIColor(named: "\(tabelCellColours![indexPath.row])")
 
         }
 
@@ -73,8 +61,7 @@ class HomeTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UserDefaults.standard.set(indexPath.row, forKey: "counterRowToTransfer")
-        print(indexPath.row)
+        homeTVCRowSelected = indexPath.row
         performSegue(withIdentifier: "detailedCounterViewSegue", sender:  Any?.self)
     }
     
@@ -104,7 +91,6 @@ class HomeTVC: UITableViewController {
         return true
     }
 
-
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -117,30 +103,4 @@ class HomeTVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

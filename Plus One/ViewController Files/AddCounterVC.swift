@@ -2,7 +2,7 @@
 //  AddCounterVC.swift
 //  Plus One
 //
-//  Created by Issey Rollison on 8/7/19.
+//  Created by Issey on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 class AddCounterVC: UIViewController {
     
-    var colourSelected = ""
+    var colour = ""
     
     @IBOutlet weak var CounterNameInput: UITextField!
     
@@ -23,31 +23,30 @@ class AddCounterVC: UIViewController {
         
         switch button.tag {
         case 1:
-            colourSelected = "CounterAccentBlue"
+            colour = "CounterAccentBlue"
         case 2:
-            colourSelected = "CounterAccentCoral"
+            colour = "CounterAccentCoral"
         case 3:
-            colourSelected = "CounterAccentDarkAquamarine"
+            colour = "CounterAccentDarkAquamarine"
         case 4:
-            colourSelected = "CounterAccentPurple"
+            colour = "CounterAccentPurple"
         case 5:
-            colourSelected = "CounterAccentRed"
+            colour = "CounterAccentRed"
         case 6:
-            colourSelected = "CounterAccentTeal"
+            colour = "CounterAccentTeal"
         case 7:
-            colourSelected = "CounterAccentPink"
+            colour = "CounterAccentPink"
         case 8:
-            colourSelected = "CounterAccentYellow"
+            colour = "CounterAccentYellow"
         default:
-            colourSelected = "CounterAccentBlue"
+            colour = "CounterAccentBlue"
             print("Cant find colour?")
         }
-        selectedColourView.backgroundColor = UIColor(named: "\(colourSelected)")
+        selectedColourView.backgroundColor = UIColor(named: "\(colour)")
     }
     
     
     @IBAction func addInputs(_ sender: Any) {
-        
         if CounterNameInput.hasText {
             // saving new array to user defaults
             
@@ -63,7 +62,7 @@ class AddCounterVC: UIViewController {
             
             // counter colour
             var counterColours = UserDefaults.standard.array(forKey: "counterColoursUserDef") as! [String]
-            counterColours.insert("\(colourSelected)", at: 0)
+            counterColours.insert("\(colour)", at: 0)
             UserDefaults.standard.set(counterColours, forKey: "counterColoursUserDef")
             
             // segue
@@ -76,8 +75,22 @@ class AddCounterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         // Do any additional setup after loading the view.
-        colourSelected = "CounterAccentBlue"
+        // Do any additional setup after loading the view.
+        
+        // keyboardDismiss
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.barTintColor = UIColor(named: "Background")
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.dismissKeyboard))
+        doneBtn.tintColor = .white
+        
+        toolbar.setItems([doneBtn], animated: true)
+        
+        CounterNameInput.inputAccessoryView = toolbar
+        
+        
+        colour = "CounterAccentBlue"
         
         selectedColourView.layer.cornerRadius = 10
         // setting text view colours to white
@@ -86,15 +99,7 @@ class AddCounterVC: UIViewController {
         CounterNameInput.layer.borderColor = white.cgColor
         CounterNameInput.layer.cornerRadius = 7
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
-    */
-
 }

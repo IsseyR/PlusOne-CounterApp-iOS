@@ -2,7 +2,7 @@
 //  CounterVC.swift
 //  Plus One
 //
-//  Created by Issey Rollison on 8/7/19.
+//  Created by Issey on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -21,29 +21,11 @@ class CounterVC: UIViewController {
     @IBAction func undwindToCounterVC(segue:UIStoryboardSegue) { }
 
     @IBOutlet weak var counterNameDetailed: UILabel!
-    var cellRowSelected  = UserDefaults.standard.integer(forKey: "counterRowToTransfer")
+    var cellRowSelected = homeTVCRowSelected
     var counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
     var arrayOffset = 0
     
   
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        // gesture recognisers
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swipeUp.direction = .up
-        
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swipeDown.direction = .down
-        
-        view.addGestureRecognizer(swipeUp)
-        view.addGestureRecognizer(swipeDown)
-        
-    }
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
@@ -70,16 +52,21 @@ class CounterVC: UIViewController {
         counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
         arrayOffset = counterValues[cellRowSelected]
         counterNameDetailed.text = String(arrayOffset)
-        self.title = UserDefaults.standard.array(forKey: "counterNamesUserDef")![UserDefaults.standard.integer(forKey: "counterRowToTransfer")] as? String
+        self.title = UserDefaults.standard.array(forKey: "counterNamesUserDef")![homeTVCRowSelected] as? String
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        // gesture recognisers
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipeUp.direction = .up
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipeDown.direction = .down
+        
+        view.addGestureRecognizer(swipeUp)
+        view.addGestureRecognizer(swipeDown)
     }
-    */
-
 }

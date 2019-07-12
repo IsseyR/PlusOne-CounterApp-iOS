@@ -2,7 +2,7 @@
 //  CounterSettingsVc.swift
 //  Plus One
 //
-//  Created by Issey Rollison on 11/7/19.
+//  Created by Issey on 11/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -10,13 +10,15 @@ import UIKit
 
 class CounterSettingsVC: UIViewController {
     
-    var cellRowSelected = UserDefaults.standard.integer(forKey: "counterRowToTransfer")
+    var cellRowSelected = homeTVCRowSelected
     var counterColours = UserDefaults.standard.array(forKey: "counterColoursUserDef") as! [String]
     var counterNames = UserDefaults.standard.array(forKey: "counterNamesUserDef") as! [String]
     var countervalues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
     var colour = ""
     var name = ""
     var value = 0
+    
+    @IBOutlet weak var selectedColourView: UIView!
     
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var valueInput: UITextField!
@@ -72,33 +74,52 @@ class CounterSettingsVC: UIViewController {
             colour = "CounterAccentBlue"
             print("Cant find colour?")
         }
+        selectedColourView.backgroundColor = UIColor(named: "\(colour)")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
+        // dismiss keyboard
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.barTintColor = UIColor(named: "Background")
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.dismissKeyboard))
+        doneBtn.tintColor = .white
+        
+        toolbar.setItems([doneBtn], animated: true)
+        
+        nameInput.inputAccessoryView = toolbar
+        valueInput.inputAccessoryView = toolbar
+        
+        // setting text fields
+        let white = UIColor.white
+        nameInput.layer.borderWidth = 1.0
+        nameInput.layer.borderColor = white.cgColor
+        nameInput.layer.cornerRadius = 7
+        
+        valueInput.layer.borderWidth = 1.0
+        valueInput.layer.borderColor = white.cgColor
+        valueInput.layer.cornerRadius = 7
+        
+        //setting values
         value = countervalues[cellRowSelected]
         name = counterNames[cellRowSelected]
         colour = counterColours[cellRowSelected]
         
         nameInput.text = name
         valueInput.text = String(value)
+    
+        selectedColourView.layer.cornerRadius = 10
         
         print("colour: \(colour)")
         print("name: \(name)")
         print("value: \(value)")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
-    */
-
 }
