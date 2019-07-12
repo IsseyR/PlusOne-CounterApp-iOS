@@ -3,7 +3,7 @@
 ### An iOS app for counting and remembering those numbers that allways popup in everyday life.
 
 ## Screenshots
-Home Screen                |  Counter Tracker
+Home Screen                |  Counter Editor
 :-------------------------:|:-------------------------:
 <img src="https://isseyr.github.io/sourcefiles-PlusOne/CounterHome.png" alt="counter home" width="300"/>  |  <img src="https://isseyr.github.io/sourcefiles-PlusOne/CounterAction.png" alt="counter action" width="300"/>
 
