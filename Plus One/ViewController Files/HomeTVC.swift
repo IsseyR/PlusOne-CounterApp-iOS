@@ -76,6 +76,9 @@ class HomeTVC: UITableViewController {
     }
     
     
+    
+    
+    
     // cell size
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110.0
@@ -111,7 +114,11 @@ class HomeTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+        if tableView.isEditing {
+            return .none
+        } else {
+            return .delete
+        }
     }
     
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
