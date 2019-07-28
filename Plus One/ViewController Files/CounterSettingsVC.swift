@@ -43,6 +43,7 @@ class CounterSettingsVC: UIViewController {
             countervalues[cellRowSelected] = value
             UserDefaults.standard.set(countervalues, forKey: "counterValuesUserDef")
         }
+        
         // unwind segue
         performSegue(withIdentifier: "undwindFromSettings", sender: self)
         

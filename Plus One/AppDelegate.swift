@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             print("Not first launch.")
-        }
-        else {
+        } else {
             print("First launch")
             UserDefaults.standard.set([String](), forKey: "counterColoursUserDef")
             UserDefaults.standard.set([Int](), forKey: "counterValuesUserDef")
@@ -30,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             
         }
-        
         return true
     }
 
