@@ -1,6 +1,6 @@
 # Plus-One-iOS-App
 
-### An iOS app for counting and remembering those numbers that allways popup in everyday life.
+### An iOS app for counting and remembering those numbers that always popup in everyday life.
 
 ## Screenshots
 Home Screen                |  Counter Editor
