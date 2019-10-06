@@ -18,4 +18,7 @@ git clone https://github.com/IsseyR/PlusOne-CounterApp-iOS.git
 
 ## Extra Info
 - Currently tested only on Xcode simulator
-- May still have bugs
+
+## Bugs
+- Some inconsistencies in navigation bar appearances (iOS 13 only)
+- The counter accent colour disappears when rearranging cells
