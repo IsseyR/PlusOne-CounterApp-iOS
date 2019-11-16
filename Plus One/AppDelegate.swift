@@ -21,13 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             print("Not first launch.")
+            UserDefaults.standard.set("Dark", forKey: "colourTheme")
         } else {
             print("First launch")
             UserDefaults.standard.set([String](), forKey: "counterColoursUserDef")
             UserDefaults.standard.set([Int](), forKey: "counterValuesUserDef")
             UserDefaults.standard.set([String](), forKey: "counterNamesUserDef")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
-            
         }
         return true
     }

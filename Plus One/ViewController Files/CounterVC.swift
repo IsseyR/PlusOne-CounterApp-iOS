@@ -25,7 +25,6 @@ class CounterVC: UIViewController {
     var counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
     var arrayOffset = 0
     
-  
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
@@ -44,11 +43,13 @@ class CounterVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         counterValues[cellRowSelected] = arrayOffset
         UserDefaults.standard.set(counterValues, forKey: "counterValuesUserDef")
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
         arrayOffset = counterValues[cellRowSelected]
         counterNameDetailed.text = String(arrayOffset)
@@ -59,6 +60,8 @@ class CounterVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+    
         // gesture recognisers
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         swipeUp.direction = .up
@@ -68,5 +71,6 @@ class CounterVC: UIViewController {
         
         view.addGestureRecognizer(swipeUp)
         view.addGestureRecognizer(swipeDown)
+        
     }
 }

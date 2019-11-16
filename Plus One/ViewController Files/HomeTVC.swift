@@ -8,12 +8,15 @@
 
 import UIKit
 import Foundation
+import Lottie
 
 var homeTVCRowSelected = 0
 
 class HomeTVC: UITableViewController {
     
     @IBOutlet weak var editButton: UIBarButtonItem!
+    let animationView: AnimationView = AnimationView(name: "\(PublicData.theme ?? "Dark")ModeNoItemsAnimation")
+
     
     @IBAction func startEditing(_ sender: Any) {
         isEditing = !isEditing
@@ -27,19 +30,39 @@ class HomeTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkToDisplayImage()
+        
     }
     
     var tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
     var tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
     var tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
-
+    
     // MARK: - Table view data source
-
+    
+    func checkToDisplayImage() {
+        if tableView.numberOfRows(inSection: 0) == 0 {
+            print("Empty")
+            
+            animationView.frame = CGRect(x: tableView.frame.width / 2 - 100, y:  tableView.frame.height / 2 - 210, width: 200, height: 200)
+            animationView.contentMode = .scaleAspectFill
+            self.view.addSubview(animationView)
+            animationView.play()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        animationView.pause()
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if tableCellNames != nil {
@@ -48,8 +71,8 @@ class HomeTVC: UITableViewController {
             return 0
         }
     }
-
-   
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath)
         
@@ -64,9 +87,9 @@ class HomeTVC: UITableViewController {
             
             let colour = cell.viewWithTag(3) 
             colour!.backgroundColor = UIColor(named: "\(tableCellColours![indexPath.row])")
-
+            
         }
-
+        
         return cell
     }
     
@@ -90,16 +113,18 @@ class HomeTVC: UITableViewController {
         tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
         tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
         
+        animationView.play()
+                
         tableView.reloadData()
     }
     
-
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -110,6 +135,8 @@ class HomeTVC: UITableViewController {
             self.tableCellValues?.remove(at: indexPath.row)
             UserDefaults.standard.set(tableCellValues, forKey: "counterValuesUserDef")
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            checkToDisplayImage()
         }
     }
     
@@ -148,6 +175,7 @@ class HomeTVC: UITableViewController {
         UserDefaults.standard.set(tableCellNames, forKey: "counterNamesUserDef")
         UserDefaults.standard.set(tableCellValues, forKey: "counterValuesUserDef")
         UserDefaults.standard.set(tableCellColours, forKey: "counterColoursUserDef")
+        
     }
-
+    
 }
