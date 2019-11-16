@@ -1,6 +1,6 @@
 # Warning - In Current state there are many broken features
 # It is still under active dev
-## For outdated (but working) version, head to Workspace branch
+## For outdated (but mostly working) version, head to 'Working' branch
 
 # Plus-One-iOS-App
 
