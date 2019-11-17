@@ -1,3 +1,7 @@
+# Warning - In Current state there are many broken features
+# It is still under active dev
+## For outdated (but mostly working) version, head to 'Working' branch
+
 # Plus-One-iOS-App
 
 ### An iOS app for counting and remembering those numbers that always popup in everyday life.
