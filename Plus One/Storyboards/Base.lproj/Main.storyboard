@@ -34,8 +34,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YLG-K2-DEq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="Background"/>
-                        <color key="separatorColor" name="Background"/>
+                        <color key="backgroundColor" name="DarkBackground"/>
+                        <color key="separatorColor" name="DarkBackground"/>
                         <sections>
                             <tableViewSection headerTitle="App" id="bl2-dr-Xsm">
                                 <cells>
@@ -55,7 +55,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" id="YeF-Sy-mgu">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
@@ -73,7 +73,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" id="M2w-5U-IY1">
                                         <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
@@ -91,7 +91,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" id="AdJ-5e-eNz">
                                         <rect key="frame" x="0.0" y="158.5" width="414" height="43.5"/>
@@ -109,7 +109,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -129,12 +129,19 @@
                                                     <color key="textColor" name="SystemWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-0S-9uX">
-                                                    <rect key="frame" x="345" y="6" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxS-0S-9uX">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
                                                     <color key="onTintColor" name="CounterAccentCoral"/>
+                                                    <connections>
+                                                        <action selector="optionSwitches:" destination="O8X-40-FcQ" eventType="valueChanged" id="TPx-99-OYz"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
+                                            <color key="backgroundColor" name="DarkBackground"/>
+                                            <constraints>
+                                                <constraint firstItem="fxS-0S-9uX" firstAttribute="centerY" secondItem="o4Q-lK-k5p" secondAttribute="centerY" id="DO4-3o-RI6"/>
+                                                <constraint firstAttribute="trailing" secondItem="fxS-0S-9uX" secondAttribute="trailing" constant="20" id="clj-Zg-xeN"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                     </tableViewCell>
@@ -152,14 +159,20 @@
                                                     <color key="textColor" name="SystemWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jh-3h-BO8">
-                                                    <rect key="frame" x="345" y="6" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jh-3h-BO8">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
                                                     <color key="onTintColor" name="CounterAccentCoral"/>
+                                                    <connections>
+                                                        <action selector="optionSwitches:" destination="O8X-40-FcQ" eventType="valueChanged" id="UE3-wf-eUy"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3jh-3h-BO8" secondAttribute="trailing" constant="20" id="O4l-dH-ofQ"/>
+                                                <constraint firstItem="3jh-3h-BO8" firstAttribute="centerY" secondItem="NVr-60-ikM" secondAttribute="centerY" id="eIX-gF-Bv5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" id="CnT-7C-AO5">
                                         <rect key="frame" x="0.0" y="345" width="414" height="43.5"/>
@@ -175,14 +188,20 @@
                                                     <color key="textColor" name="SystemWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ayd-Tk-LRm">
-                                                    <rect key="frame" x="345" y="6" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ayd-Tk-LRm">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
                                                     <color key="onTintColor" name="CounterAccentCoral"/>
+                                                    <connections>
+                                                        <action selector="optionSwitches:" destination="O8X-40-FcQ" eventType="valueChanged" id="ZiS-Rc-5RH"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ayd-Tk-LRm" firstAttribute="centerY" secondItem="KMv-XA-kF6" secondAttribute="centerY" id="QR7-n1-caL"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ayd-Tk-LRm" secondAttribute="trailing" constant="20" id="ssI-rh-8V3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -204,7 +223,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" id="nlx-Rp-csE">
                                         <rect key="frame" x="0.0" y="488" width="414" height="43.5"/>
@@ -222,7 +241,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="settingsCell" id="IC6-c2-QCa">
                                         <rect key="frame" x="0.0" y="531.5" width="414" height="43.5"/>
@@ -240,7 +259,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
+                                        <color key="backgroundColor" name="DarkBackground"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -250,9 +269,22 @@
                             <outlet property="delegate" destination="O8X-40-FcQ" id="7eM-Gf-Ft3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="SOg-RF-USQ"/>
+                    <navigationItem key="navigationItem" title="Settings" id="SOg-RF-USQ">
+                        <barButtonItem key="rightBarButtonItem" title="Done" systemItem="done" id="98T-Oh-jTC">
+                            <connections>
+                                <action selector="doneButton:" destination="O8X-40-FcQ" id="gmE-bM-2SO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="audioSwitchOutlet" destination="Ayd-Tk-LRm" id="1Qi-wN-atJ"/>
+                        <outlet property="hapticsSwitchOutlet" destination="3jh-3h-BO8" id="LXw-uc-1WG"/>
+                        <outlet property="themeSwitchOutlet" destination="fxS-0S-9uX" id="KXn-97-qzT"/>
+                        <segue destination="6Vx-Iv-nk7" kind="unwind" identifier="undwindFromAppSettings" unwindAction="undwindToHomeTVCWithSegue:" id="c94-44-5nf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pig-0H-xuX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6Vx-Iv-nk7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-662" y="-731"/>
         </scene>
@@ -272,7 +304,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8WW-rJ-oFR">
                                 <rect key="frame" x="20" y="166" width="374" height="34"/>
-                                <color key="backgroundColor" name="Background"/>
+                                <color key="backgroundColor" name="DarkBackground"/>
                                 <color key="tintColor" name="SystemWhite"/>
                                 <color key="textColor" name="SystemWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -412,7 +444,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="DarkBackground"/>
                         <constraints>
                             <constraint firstItem="8WW-rJ-oFR" firstAttribute="leading" secondItem="9Jy-Ad-p3D" secondAttribute="leading" constant="20" id="8e6-88-OdJ"/>
                             <constraint firstItem="iDN-G9-kJK" firstAttribute="leading" secondItem="9Jy-Ad-p3D" secondAttribute="leading" constant="20" id="ABd-iF-Tig"/>
@@ -457,8 +489,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NsZ-40-sS8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="Background"/>
-                        <color key="separatorColor" name="Background"/>
+                        <color key="backgroundColor" name="DarkBackground"/>
+                        <color key="separatorColor" name="DarkBackground"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="111" id="Fxo-3j-gTk">
                                 <rect key="frame" x="0.0" y="28" width="414" height="111"/>
@@ -501,7 +533,7 @@
                                         <constraint firstItem="oHk-Ff-OTz" firstAttribute="leading" secondItem="pbM-V2-Z90" secondAttribute="trailing" constant="10" id="p2l-NP-oC9"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="Background"/>
+                                <color key="backgroundColor" name="DarkBackground"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -533,16 +565,11 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editButton" destination="Lbs-YB-sKR" id="52V-fp-c6g"/>
+                        <outlet property="newCounterButton" destination="eOA-fK-qr1" id="7oa-2A-CYH"/>
                         <segue destination="sPX-MS-xGd" kind="show" identifier="detailedCounterViewSegue" id="534-Ha-Mb5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xlr-Y8-apn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="GmV-nA-xtf">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <viewLayoutGuide key="safeArea" id="gdi-Ea-ZAC"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="175.36231884057972" y="29.464285714285712"/>
         </scene>
@@ -573,7 +600,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="DarkBackground"/>
                         <constraints>
                             <constraint firstItem="IcR-wj-VGC" firstAttribute="centerX" secondItem="IsL-P6-w32" secondAttribute="centerX" id="G6c-c0-xGt"/>
                             <constraint firstItem="SnT-Dn-7At" firstAttribute="bottom" secondItem="IcR-wj-VGC" secondAttribute="bottom" constant="30" id="Ptb-rt-TFp"/>
@@ -616,7 +643,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svq-oS-8xf">
                                 <rect key="frame" x="20" y="218" width="374" height="34"/>
-                                <color key="backgroundColor" name="Background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="SystemWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
@@ -629,7 +656,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6OV-hG-TQA">
                                 <rect key="frame" x="20" y="330" width="374" height="34"/>
-                                <color key="backgroundColor" name="Background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="SystemWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
@@ -768,7 +795,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="DarkBackground"/>
                         <constraints>
                             <constraint firstItem="anp-yP-TT9" firstAttribute="top" secondItem="eKC-qW-YXC" secondAttribute="bottom" constant="10" id="29n-UB-2dj"/>
                             <constraint firstItem="P0m-qR-vix" firstAttribute="leading" secondItem="5Vi-vf-DBB" secondAttribute="leading" constant="20" id="5PH-et-JGM"/>
@@ -804,8 +831,10 @@
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="nameInput" destination="Svq-oS-8xf" id="Byx-rX-VDv"/>
+                        <outlet property="nameInputTitle" destination="dkW-ao-JTI" id="Vby-NY-mui"/>
                         <outlet property="selectedColourView" destination="8Mb-Xx-aQw" id="uTD-85-zJP"/>
                         <outlet property="valueInput" destination="6OV-hG-TQA" id="5xn-dS-U6H"/>
+                        <outlet property="valueInputTitle" destination="P0m-qR-vix" id="o29-VT-TbS"/>
                         <segue destination="Q7j-WY-jTI" kind="unwind" identifier="undwindFromSettings" unwindAction="undwindToCounterVCWithSegue:" id="IUj-Ec-b5Q"/>
                     </connections>
                 </viewController>
@@ -843,6 +872,9 @@
         </namedColor>
         <namedColor name="CounterAccentYellow">
             <color red="0.96078431372549022" green="0.81176470588235294" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DarkBackground">
+            <color red="0.12549019607843137" green="0.13725490196078433" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SystemOrange">
             <color red="1" green="0.84705882352941175" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             print("Not first launch.")
-            UserDefaults.standard.set("Dark", forKey: "colourTheme")
+//            UserDefaults.standard.set("Dark", forKey: "colourTheme")
         } else {
             print("First launch")
             UserDefaults.standard.set([String](), forKey: "counterColoursUserDef")
@@ -51,9 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
     }
-
-
 }
 

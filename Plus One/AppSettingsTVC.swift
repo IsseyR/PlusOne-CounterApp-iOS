@@ -9,86 +9,68 @@
 import UIKit
 
 class AppSettingsTVC: UITableViewController {
+    
+    @IBOutlet var themeSwitchOutlet: UISwitch!
+    @IBOutlet var hapticsSwitchOutlet: UISwitch!
+    @IBOutlet var audioSwitchOutlet: UISwitch!
+    
+    let themeSwitchOn = PublicData.theme == "Dark" ? true : false
+    
+    @IBAction func doneButton(_ sender: Any) {
+        performSegue(withIdentifier: "undwindFromAppSettings", sender: nil)
+    }
+    
+    @IBAction func optionSwitches(_ sender: Any) {
 
-
+        guard let switches = sender as? UISwitch else {
+            return
+        }
+        
+        switch switches.tag {
+        case 0:
+            if themeSwitchOutlet.isOn {
+                UserDefaults.standard.set("Dark", forKey: "colourTheme")
+            } else {
+                UserDefaults.standard.set("Light", forKey: "colourTheme")
+            }
+            PublicData.updateData()
+            changeTheme()
+        case 1:
+            if hapticsSwitchOutlet.isOn {
+                UserDefaults.standard.set(true, forKey: "hasHaptics")
+            } else {
+                UserDefaults.standard.set(false, forKey: "hasHaptics")
+            }
+        case 2:
+            if audioSwitchOutlet.isOn {
+                UserDefaults.standard.set(true, forKey: "hasAudio")
+            } else {
+                UserDefaults.standard.set(false, forKey: "hasAudio")
+            }
+        default:
+            break
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Do any additional setup after loading the view.
+        
+        // Removing back button
+        self.navigationItem.hidesBackButton = true
+        
+        // Set switch states
+        themeSwitchOutlet.setOn(themeSwitchOn, animated: false)
+        
+        // Set theme
+        changeTheme()
     }
-
-//    // MARK: - Table view data source
-//
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 3
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        switch section {
-//        case 0: return 3
-//        case 1: return 3
-//        case 2: return 4
-//        default: return 0
-//        }
-//    }
-//
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
-//
-//        // Configure the cell...
-//
-//        return cell
-//    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func changeTheme() {
+        self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        self.navigationController?.navigationBar.tintColor = PublicData.textColour
+        self.navigationController?.navigationBar.largeTitleTextAttributes = PublicData.titleAttributes
+        self.navigationController?.navigationBar.titleTextAttributes = PublicData.titleAttributes
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -21,7 +21,9 @@ class CounterSettingsVC: UIViewController {
     @IBOutlet weak var selectedColourView: UIView!
     
     @IBOutlet weak var nameInput: UITextField!
+    @IBOutlet var nameInputTitle: UILabel!
     @IBOutlet weak var valueInput: UITextField!
+    @IBOutlet var valueInputTitle: UILabel!
     
     @IBAction func saveButton(_ sender: Any) {
         // saving data
@@ -120,13 +122,22 @@ class CounterSettingsVC: UIViewController {
         
         
         selectedColourView.layer.cornerRadius = 10
-        DispatchQueue.main.async {
-            self.selectedColourView.backgroundColor = UIColor(named: "\(self.colour)")
-        }
         
+        changeTheme()
     }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func changeTheme() {
+        self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        selectedColourView.backgroundColor = UIColor(named: "\(self.colour)")
+        nameInput.layer.borderColor = (PublicData.textColour).cgColor
+        nameInput.textColor = PublicData.textColour
+        valueInput.layer.borderColor = (PublicData.textColour).cgColor
+        valueInput.textColor = PublicData.textColour
+        nameInputTitle.textColor = PublicData.textColour
+        valueInputTitle.textColor = PublicData.textColour
     }
 }

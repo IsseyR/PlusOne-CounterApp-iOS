@@ -14,9 +14,15 @@ var homeTVCRowSelected = 0
 
 class HomeTVC: UITableViewController {
     
+    @IBOutlet var newCounterButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    let animationView: AnimationView = AnimationView(name: "\(PublicData.theme ?? "Dark")ModeNoItemsAnimation")
+    
+    @IBAction func undwindToHomeTVC(segue: UIStoryboardSegue) { }
 
+    var tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
+    var tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
+    var tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
+    let animationView: AnimationView = AnimationView(name: "\(PublicData.theme ?? "Dark")ModeNoItemsAnimation")
     
     @IBAction func startEditing(_ sender: Any) {
         isEditing = !isEditing
@@ -30,26 +36,31 @@ class HomeTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("View did load")
         checkToDisplayImage()
-        
     }
     
-    var tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
-    var tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
-    var tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
     
     // MARK: - Table view data source
     
     func checkToDisplayImage() {
         if tableView.numberOfRows(inSection: 0) == 0 {
             print("Empty")
-            
             animationView.frame = CGRect(x: tableView.frame.width / 2 - 100, y:  tableView.frame.height / 2 - 210, width: 200, height: 200)
             animationView.contentMode = .scaleAspectFill
             self.view.addSubview(animationView)
             animationView.play()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
+        tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
+        tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
+        
+        animationView.play()
+        changeTheme()
+        tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,11 +87,14 @@ class HomeTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath)
         
+        cell.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+
         // Configure the cell...
         
         if tableCellNames != nil {
             let name = cell.viewWithTag(2) as! UILabel
             name.text = tableCellNames?[indexPath.row] as? String
+            name.textColor = PublicData.textColour
             
             let value = cell.viewWithTag(1) as! UILabel
             value.text = "\(tableCellValues![indexPath.row])"
@@ -98,27 +112,11 @@ class HomeTVC: UITableViewController {
         performSegue(withIdentifier: "detailedCounterViewSegue", sender:  Any?.self)
     }
     
-    
-    
-    
-    
     // cell size
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110.0
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
-        tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
-        tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
-        
-        animationView.play()
-                
-        tableView.reloadData()
-    }
-    
-    
+
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -176,6 +174,17 @@ class HomeTVC: UITableViewController {
         UserDefaults.standard.set(tableCellValues, forKey: "counterValuesUserDef")
         UserDefaults.standard.set(tableCellColours, forKey: "counterColoursUserDef")
         
+    }
+    
+    func changeTheme() {
+        // Update theme
+          
+        self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        self.navigationController?.navigationBar.tintColor = PublicData.textColour
+        self.navigationController?.navigationBar.largeTitleTextAttributes = PublicData.titleAttributes
+        self.navigationController?.navigationBar.titleTextAttributes = PublicData.titleAttributes
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        newCounterButton.tintColor = PublicData.textColour
     }
     
 }

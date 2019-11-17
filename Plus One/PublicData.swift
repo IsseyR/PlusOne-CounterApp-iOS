@@ -6,9 +6,17 @@
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PublicData {
     static var theme = UserDefaults.standard.string(forKey: "colourTheme")
-    static var mainTextColour = UserDefaults.standard.string(forKey: "mainTextColour")
+    static var textColour = PublicData.theme == "Dark" ? UIColor.white : UIColor.black
+    static var titleAttributes = [NSAttributedString.Key.foregroundColor: PublicData.textColour]
+
+        
+    static func updateData() {
+        PublicData.theme = UserDefaults.standard.string(forKey: "colourTheme")
+        PublicData.textColour = PublicData.theme == "Dark" ? UIColor.white : UIColor.black
+        PublicData.titleAttributes = [NSAttributedString.Key.foregroundColor: PublicData.textColour]
+    }
 }
