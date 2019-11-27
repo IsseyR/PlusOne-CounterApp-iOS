@@ -2,7 +2,7 @@
 //  AddCounterVC.swift
 //  Plus One
 //
-//  Created by Issey on 8/7/19.
+//  Created by Issey Rollison on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -64,6 +64,11 @@ class AddCounterVC: UIViewController {
             var counterColours = UserDefaults.standard.array(forKey: "counterColoursUserDef") as! [String]
             counterColours.insert("\(colour)", at: 0)
             UserDefaults.standard.set(counterColours, forKey: "counterColoursUserDef")
+            
+            // counter increment
+            var counterIncrement = UserDefaults.standard.array(forKey: "counterIncrementUserDef") as! [Int]
+            counterIncrement.insert(1, at: 0)
+            UserDefaults.standard.set(counterIncrement, forKey: "counterIncrementUserDef")
             
             // segue
             performSegue(withIdentifier: "addCounterSegue", sender: nil)

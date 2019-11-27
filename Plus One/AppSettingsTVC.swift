@@ -2,7 +2,7 @@
 //  AppSettingsTVC.swift
 //  Plus One
 //
-//  Created by Issey Rollison on 16/11/19.
+//  Created by Issey Rollison Rollison on 16/11/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class AppSettingsTVC: UITableViewController {
     }
     
     @IBAction func optionSwitches(_ sender: Any) {
-
+        
         guard let switches = sender as? UISwitch else {
             return
         }
@@ -51,7 +51,12 @@ class AppSettingsTVC: UITableViewController {
             break
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -64,7 +69,9 @@ class AppSettingsTVC: UITableViewController {
         
         // Set theme
         changeTheme()
+        
     }
+    
     
     func changeTheme() {
         self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
@@ -72,5 +79,6 @@ class AppSettingsTVC: UITableViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = PublicData.titleAttributes
         self.navigationController?.navigationBar.titleTextAttributes = PublicData.titleAttributes
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        
     }
 }

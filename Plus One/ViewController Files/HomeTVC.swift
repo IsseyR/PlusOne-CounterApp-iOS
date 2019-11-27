@@ -2,7 +2,7 @@
 //  HomeTVC.swift
 //  Plus One
 //
-//  Created by Issey on 8/7/19.
+//  Created by Issey Rollison on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -22,6 +22,7 @@ class HomeTVC: UITableViewController {
     var tableCellNames = UserDefaults.standard.array(forKey: "counterNamesUserDef")
     var tableCellValues = UserDefaults.standard.array(forKey: "counterValuesUserDef")
     var tableCellColours = UserDefaults.standard.array(forKey: "counterColoursUserDef")
+    var tableCellIncrement = UserDefaults.standard.array(forKey: "counterIncrementUserDef")
     let animationView: AnimationView = AnimationView(name: "\(PublicData.theme ?? "Dark")ModeNoItemsAnimation")
     
     @IBAction func startEditing(_ sender: Any) {
@@ -132,6 +133,8 @@ class HomeTVC: UITableViewController {
             UserDefaults.standard.set(tableCellColours, forKey: "counterColoursUserDef")
             self.tableCellValues?.remove(at: indexPath.row)
             UserDefaults.standard.set(tableCellValues, forKey: "counterValuesUserDef")
+            self.tableCellIncrement?.remove(at: indexPath.row)
+            UserDefaults.standard.set(tableCellIncrement, forKey: "counterIncrementUserDef")
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             checkToDisplayImage()
@@ -161,18 +164,22 @@ class HomeTVC: UITableViewController {
         let nameToMove = tableCellNames![sourceIndexPath.row]
         let valueToMove = tableCellValues![sourceIndexPath.row]
         let colourToMove = tableCellColours![sourceIndexPath.row]
+        let incrementToMove = tableCellIncrement![sourceIndexPath.row]
         
         tableCellNames?.remove(at: sourceIndexPath.row)
         tableCellValues?.remove(at: sourceIndexPath.row)
         tableCellColours?.remove(at: sourceIndexPath.row)
+        tableCellIncrement?.remove(at: sourceIndexPath.row)
         
         tableCellNames?.insert(nameToMove, at: destinationIndexPath.row)
         tableCellValues?.insert(valueToMove, at: destinationIndexPath.row)
         tableCellColours?.insert(colourToMove, at: destinationIndexPath.row)
+        tableCellIncrement?.insert(incrementToMove, at: destinationIndexPath.row)
         
         UserDefaults.standard.set(tableCellNames, forKey: "counterNamesUserDef")
         UserDefaults.standard.set(tableCellValues, forKey: "counterValuesUserDef")
         UserDefaults.standard.set(tableCellColours, forKey: "counterColoursUserDef")
+        UserDefaults.standard.set(tableCellIncrement, forKey: "counterIncrementUserDef")
         
     }
     

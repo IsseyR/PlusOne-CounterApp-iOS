@@ -2,7 +2,7 @@
 //  CounterSettingsVc.swift
 //  Plus One
 //
-//  Created by Issey on 11/7/19.
+//  Created by Issey Rollison on 11/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -10,10 +10,11 @@ import UIKit
 
 class CounterSettingsVC: UIViewController {
     
-    var cellRowSelected = homeTVCRowSelected
+    let cellRowSelected = homeTVCRowSelected
     var counterColours = UserDefaults.standard.array(forKey: "counterColoursUserDef") as! [String]
     var counterNames = UserDefaults.standard.array(forKey: "counterNamesUserDef") as! [String]
     var countervalues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
+    var counterIncrement = UserDefaults.standard.array(forKey: "counterIncrementDef") as! [Int]
     var colour = ""
     var name = ""
     var value = 0
@@ -79,6 +80,7 @@ class CounterSettingsVC: UIViewController {
         }
         selectedColourView.backgroundColor = UIColor(named: "\(colour)")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

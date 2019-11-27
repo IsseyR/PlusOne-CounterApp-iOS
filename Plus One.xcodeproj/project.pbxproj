@@ -20,6 +20,7 @@
 		81C974F822D2EEBD005220D4 /* CounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C974F722D2EEBD005220D4 /* CounterVC.swift */; };
 		81C974FA22D331A9005220D4 /* AddCounterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C974F922D331A9005220D4 /* AddCounterVC.swift */; };
 		81F5965D22D7091E004638E7 /* CounterSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5965C22D7091E004638E7 /* CounterSettingsVC.swift */; };
+		ED05596D2381266D00484AFC /* CounterSettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED05596C2381266D00484AFC /* CounterSettingsTVC.swift */; };
 		ED8D3228237FE42300D3B6CC /* PublicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D3227237FE42300D3B6CC /* PublicData.swift */; };
 		ED8D322C23800CBC00D3B6CC /* AppSettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D322B23800CBC00D3B6CC /* AppSettingsTVC.swift */; };
 		EDD0EFE8237FB2C700D5CD7D /* LightModeNoItemsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = EDD0EFE6237FB2C700D5CD7D /* LightModeNoItemsAnimation.json */; };
@@ -68,6 +69,7 @@
 		A700941DD4DBC8D11C38B158 /* Pods-Plus One.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plus One.debug.xcconfig"; path = "Target Support Files/Pods-Plus One/Pods-Plus One.debug.xcconfig"; sourceTree = "<group>"; };
 		D7F553920B3A8746241F6B34 /* Pods-Plus OneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plus OneTests.release.xcconfig"; path = "Target Support Files/Pods-Plus OneTests/Pods-Plus OneTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4B911D40B427677987846C9 /* Pods-Plus One-Plus OneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plus One-Plus OneUITests.debug.xcconfig"; path = "Target Support Files/Pods-Plus One-Plus OneUITests/Pods-Plus One-Plus OneUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED05596C2381266D00484AFC /* CounterSettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterSettingsTVC.swift; sourceTree = "<group>"; };
 		ED8D3227237FE42300D3B6CC /* PublicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublicData.swift; path = "Plus One/PublicData.swift"; sourceTree = SOURCE_ROOT; };
 		ED8D322B23800CBC00D3B6CC /* AppSettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppSettingsTVC.swift; path = "Plus One/AppSettingsTVC.swift"; sourceTree = SOURCE_ROOT; };
 		EDD0EFE6237FB2C700D5CD7D /* LightModeNoItemsAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LightModeNoItemsAnimation.json; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				81C974F522D2E810005220D4 /* HomeTVC.swift */,
 				81F5965C22D7091E004638E7 /* CounterSettingsVC.swift */,
+				ED05596C2381266D00484AFC /* CounterSettingsTVC.swift */,
 				81C974F722D2EEBD005220D4 /* CounterVC.swift */,
 				81C974F922D331A9005220D4 /* AddCounterVC.swift */,
 				ED8D322B23800CBC00D3B6CC /* AppSettingsTVC.swift */,
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8D3228237FE42300D3B6CC /* PublicData.swift in Sources */,
+				ED05596D2381266D00484AFC /* CounterSettingsTVC.swift in Sources */,
 				81C974F622D2E810005220D4 /* HomeTVC.swift in Sources */,
 				81C974C822D2E7C1005220D4 /* AppDelegate.swift in Sources */,
 				ED8D322C23800CBC00D3B6CC /* AppSettingsTVC.swift in Sources */,

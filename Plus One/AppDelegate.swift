@@ -3,7 +3,7 @@
 //  Plus One
 //
 //  Created by Issey on 8/7/19.
-//  Copyright © 2019 Issey. All rights reserved.
+//  Copyright © 2019 Issey Rollison All rights reserved.
 //
 
 import UIKit
@@ -17,8 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        UserDefaults.standard.set(false, forKey: "launchedBefore")
+        
         // Has the app been launched before
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+
         if launchedBefore {
             print("Not first launch.")
 //            UserDefaults.standard.set("Dark", forKey: "colourTheme")
@@ -28,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set([Int](), forKey: "counterValuesUserDef")
             UserDefaults.standard.set([String](), forKey: "counterNamesUserDef")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.set([Int](), forKey: "counterIncrementUserDef")
         }
         return true
     }

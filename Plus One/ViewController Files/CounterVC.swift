@@ -2,7 +2,7 @@
 //  CounterVC.swift
 //  Plus One
 //
-//  Created by Issey on 8/7/19.
+//  Created by Issey Rollison on 8/7/19.
 //  Copyright © 2019 Issey. All rights reserved.
 //
 
@@ -24,6 +24,7 @@ class CounterVC: UIViewController {
     
     var cellRowSelected = homeTVCRowSelected
     var counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
+    var counterIncrement = UserDefaults.standard.array(forKey: "counterIncrementUserDef") as! [Int]
     var count = 0
     
     
@@ -31,9 +32,12 @@ class CounterVC: UIViewController {
         if sender.state == .ended {
             switch sender.direction {
             case .up:
-                count += 1
+                print("UP")
+                count += counterIncrement[cellRowSelected]
             case .down:
-                count -= 1
+                print("Down")
+                print(counterIncrement[cellRowSelected])
+                count -= counterIncrement[cellRowSelected]
             default:
                 print("error")
             }
@@ -47,11 +51,13 @@ class CounterVC: UIViewController {
         super.viewWillDisappear(true)
         counterValues[cellRowSelected] = count
         UserDefaults.standard.set(counterValues, forKey: "counterValuesUserDef")
+        print("Will Dissapear")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
+        counterIncrement = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
         count = counterValues[cellRowSelected]
         counterNameDetailed.text = String(count)
         self.title = UserDefaults.standard.array(forKey: "counterNamesUserDef")![homeTVCRowSelected] as? String
