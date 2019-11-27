@@ -1,3 +1,5 @@
+#### <img src="https://raw.githubusercontent.com/IsseyR/PlusOne-CounterApp-iOS/master/Plus%20One/Assets.xcassets/AppIcon.appiconset/Icon.png" alt="counter settings" width="100"/>
+
 # Warning - In Current state there are many broken features
 # It is still under active dev
 ## For outdated (but working) version, head to 'Working' branch
