@@ -41,6 +41,8 @@ class CounterVC: UIViewController {
             default:
                 print("error")
             }
+            
+            
             AudioServicesPlaySystemSound(1519)
             counterNameDetailed.text = String(count)
             print(count)
@@ -57,7 +59,7 @@ class CounterVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         counterValues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
-        counterIncrement = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
+        counterIncrement = UserDefaults.standard.array(forKey: "counterIncrementUserDef") as! [Int]
         count = counterValues[cellRowSelected]
         counterNameDetailed.text = String(count)
         self.title = UserDefaults.standard.array(forKey: "counterNamesUserDef")![homeTVCRowSelected] as? String

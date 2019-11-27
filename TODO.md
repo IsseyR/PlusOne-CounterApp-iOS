@@ -1,8 +1,8 @@
 # TODO
 
 ## Bugs
-- The value acts as the increment but also for the value
--  The increment does nothing
+- The value field in the counter setting doesn't show the current counter value properly
+- Update dark mode to not change some elements depending on system theme (iOS 13)
 
 
 ## Features
@@ -14,3 +14,11 @@
 - Fix the numbers becoming larger than the view, either through restricting how high you can count or by cutting off the text
 - Ability to enter negative numbers into set value box (add '-' to keyboard)
 - Revamp the whole counter setting UI, use a static table view - Half done
+
+
+## Possibilities
+- The ability to have folders of counters
+- To filter / search counters based on their attributes
+- Revamped home screen
+- More theming options
+- Removed cap on counter value, shows scrolling number on home screen

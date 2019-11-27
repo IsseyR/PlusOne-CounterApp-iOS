@@ -67,6 +67,13 @@ class CounterSettingsTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // setting values
+        print(UserDefaults.standard.array(forKey: "counterValuesUserDef"))
+        value = countervalues[cellRowSelected]
+        name = counterNames[cellRowSelected]
+        colour = counterColours[cellRowSelected]
+        increment = counterIncrement[cellRowSelected]
                 
         // dismiss keyboard
         let toolbar = UIToolbar()
@@ -82,18 +89,11 @@ class CounterSettingsTVC: UITableViewController {
         counterValueEntry.inputAccessoryView = toolbar
         counterIncrementEntry.inputAccessoryView = toolbar
         
-        // setting values
-        value = countervalues[cellRowSelected]
-        name = counterNames[cellRowSelected]
-        colour = counterColours[cellRowSelected]
-        increment = counterIncrement[cellRowSelected]
-        
         // setting Text
         counterValueEntry.text = String(value)
         counterNameEntry.text = name
         counterIncrementEntry.text = String(increment)
         
-        print(countervalues)
         
         print("colour: \(colour)")
         print("name: \(name)")

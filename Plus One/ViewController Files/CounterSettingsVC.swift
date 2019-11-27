@@ -12,7 +12,7 @@ class CounterSettingsVC: UIViewController {
     
     let cellRowSelected = homeTVCRowSelected
     var counterColours = UserDefaults.standard.array(forKey: "counterColoursUserDef") as! [String]
-    var counterNames = UserDefaults.standard.array(forKey: "counterNamesUserDef") as! [String]
+    var counerNames = UserDefaults.standard.array(forKey: "counterNamesUserDef") as! [String]
     var countervalues = UserDefaults.standard.array(forKey: "counterValuesUserDef") as! [Int]
     var counterIncrement = UserDefaults.standard.array(forKey: "counterIncrementDef") as! [Int]
     var colour = ""
@@ -36,8 +36,8 @@ class CounterSettingsVC: UIViewController {
         if nameInput.hasText {
              // saving name
             name = nameInput.text!
-            counterNames[cellRowSelected] = name
-            UserDefaults.standard.set(counterNames, forKey: "counterNamesUserDef")
+//            counterNames[cellRowSelected] = name
+//            UserDefaults.standard.set(counterNames, forKey: "counterNamesUserDef")
         }
         
         if valueInput.hasText && valueInput.text!.count < 5 {
@@ -87,7 +87,7 @@ class CounterSettingsVC: UIViewController {
         
         //setting values
         value = countervalues[cellRowSelected]
-        name = counterNames[cellRowSelected]
+//        name = counterNames[cellRowSelected]
         colour = counterColours[cellRowSelected]
         
         // dismiss keyboard
