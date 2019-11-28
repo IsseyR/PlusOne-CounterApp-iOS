@@ -3,6 +3,7 @@
 ## Bugs
 - The value field in the counter setting doesn't show the current counter value properly
 - Update dark mode to not change some elements depending on system theme (iOS 13)
+- The no items animation doesn't change colour unless refreshed
 
 
 ## Features
@@ -22,3 +23,4 @@
 - Revamped home screen
 - More theming options
 - Removed cap on counter value, shows scrolling number on home screen
+

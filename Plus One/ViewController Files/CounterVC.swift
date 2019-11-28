@@ -71,7 +71,6 @@ class CounterVC: UIViewController {
         
         // Theme
         counterNameDetailed.textColor = PublicData.textColour
-        
         self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
     
         // gesture recognisers

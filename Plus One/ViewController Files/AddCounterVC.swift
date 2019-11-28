@@ -13,6 +13,8 @@ class AddCounterVC: UIViewController {
     var colour = ""
     
     @IBOutlet weak var CounterNameInput: UITextField!
+    @IBOutlet var counterNameLabel: UILabel!
+    @IBOutlet var counterColourLabel: UILabel!
     
     @IBOutlet weak var selectedColourView: UIView!
     
@@ -98,11 +100,19 @@ class AddCounterVC: UIViewController {
         colour = "CounterAccentBlue"
         
         selectedColourView.layer.cornerRadius = 10
+        
         // setting text view colours to white
-        let white = UIColor.white
+        let stroke = PublicData.textColour
         CounterNameInput.layer.borderWidth = 1.0
-        CounterNameInput.layer.borderColor = white.cgColor
+        CounterNameInput.layer.borderColor = stroke.cgColor
         CounterNameInput.layer.cornerRadius = 7
+        CounterNameInput.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        CounterNameInput.textColor = PublicData.textColour
+        
+        // theme
+        self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
+        counterNameLabel.textColor = PublicData.textColour
+        counterColourLabel.textColor = PublicData.textColour
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)

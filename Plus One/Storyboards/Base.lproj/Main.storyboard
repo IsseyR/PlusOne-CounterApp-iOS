@@ -297,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDN-G9-kJK">
-                                <rect key="frame" x="20" y="108" width="109" height="48"/>
+                                <rect key="frame" x="20" y="108" width="108.5" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -474,6 +474,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="CounterNameInput" destination="8WW-rJ-oFR" id="Ohq-cP-bCy"/>
+                        <outlet property="counterColourLabel" destination="b3B-Ph-rve" id="iCP-e0-Skp"/>
+                        <outlet property="counterNameLabel" destination="iDN-G9-kJK" id="wDz-oO-Ikw"/>
                         <outlet property="selectedColourView" destination="jDc-rj-7rq" id="x0M-ip-z2C"/>
                         <segue destination="GL2-iL-OSa" kind="show" identifier="addCounterSegue" id="GQH-9M-KxW"/>
                     </connections>
@@ -1064,8 +1066,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="counterIncrementEntry" destination="gJS-Vk-dPN" id="gHw-4L-LVQ"/>
+                        <outlet property="counterIncrementLabel" destination="KV2-SE-Ibd" id="yLn-Re-4Zz"/>
                         <outlet property="counterNameEntry" destination="bfs-dG-nIG" id="r8S-1B-2M4"/>
+                        <outlet property="counterNameLabel" destination="m70-vA-NEK" id="rhk-d5-3vu"/>
                         <outlet property="counterValueEntry" destination="YSX-pK-Iv7" id="aMy-Aa-u23"/>
+                        <outlet property="counterValueLabel" destination="Qca-Md-pSA" id="fuE-ox-VCi"/>
                         <segue destination="5d0-W9-sfC" kind="unwind" identifier="undwindToCounterVCWithSegue" unwindAction="undwindToCounterVCWithSegue:" id="vKf-oN-6CG"/>
                     </connections>
                 </tableViewController>

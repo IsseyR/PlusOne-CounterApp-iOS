@@ -14,6 +14,10 @@ class CounterSettingsTVC: UITableViewController {
     @IBOutlet var counterValueEntry: UITextField!
     @IBOutlet var counterIncrementEntry: UITextField!
     
+    @IBOutlet var counterNameLabel: UILabel!
+    @IBOutlet var counterValueLabel: UILabel!
+    @IBOutlet var counterIncrementLabel: UILabel!
+    
     let cellRowSelected = homeTVCRowSelected
     var counterColours = UserDefaults.standard.array(forKey: "counterColoursUserDef") as! [String]
     var counterNames = UserDefaults.standard.array(forKey: "counterNamesUserDef") as! [String]
@@ -67,9 +71,8 @@ class CounterSettingsTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // setting values
-        print(UserDefaults.standard.array(forKey: "counterValuesUserDef"))
         value = countervalues[cellRowSelected]
         name = counterNames[cellRowSelected]
         colour = counterColours[cellRowSelected]
@@ -93,6 +96,12 @@ class CounterSettingsTVC: UITableViewController {
         counterValueEntry.text = String(value)
         counterNameEntry.text = name
         counterIncrementEntry.text = String(increment)
+        
+        // set theme
+        counterNameLabel.textColor = PublicData.textColour
+        counterValueLabel.textColor = PublicData.textColour
+        counterIncrementLabel.textColor = PublicData.textColour
+        self.view.backgroundColor = UIColor(named: "\(PublicData.theme ?? "Dark")Background")
         
         
         print("colour: \(colour)")
