@@ -11,11 +11,11 @@
 ## Screenshots
 Home Screen                |  Counter Editor
 :-------------------------:|:-------------------------:
-<img src="https://isseyr.github.io/Plus-One-Files/CounterHome.png" alt="counter home" width="300"/>  |  <img src="https://isseyr.github.io/Plus-One-Files/CounterAction.png" alt="counter action" width="300"/>
+<img src="https://isseyr.github.io/Project-Files/CounterHome.png" alt="counter home" width="300"/>  |  <img src="https://isseyr.github.io/Project-Files/CounterAction.png" alt="counter action" width="300"/>
 
 Counter Settings           |  Adding a counter
 :-------------------------:|:-------------------------:
-<img src="https://isseyr.github.io/Plus-One-Files/CounterSettings.png" alt="counter settings" width="300"/>  |  <img src="https://isseyr.github.io/Plus-One-Files/CounterAdd.png" alt="counter add" width="300"/>
+<img src="https://isseyr.github.io/Project-Files/CounterSettings.png" alt="counter settings" width="300"/>  |  <img src="https://isseyr.github.io/Project-Files/CounterAdd.png" alt="counter add" width="300"/>
 
 ## Clone
 ```
